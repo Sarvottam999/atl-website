@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Lightbulb, Users, Rocket, Brain, Code, Wrench, Award, Heart, Sparkles, Target, Zap, BookOpen, Gift, ArrowRight } from 'lucide-react';
+import React  from 'react';
+import { Lightbulb,   Rocket, Brain, Code,  Heart,  Target, Zap,  Gift } from 'lucide-react';
 
  
 interface ATLJourneyWebsiteProps {
@@ -7,9 +7,6 @@ interface ATLJourneyWebsiteProps {
   }
   
   const ATLJourneyWebsite: React.FC<ATLJourneyWebsiteProps> = ({ onNavigate }) => {
-  const [activeTab, setActiveTab] = useState(0);
-const [currentView, setCurrentView] = useState('home'); // 'home', 'presentations', 'viewer'
-const [selectedPresentation, setSelectedPresentation] = useState(null);
 
   return (
     <div className="min-h-screen bg-white">
