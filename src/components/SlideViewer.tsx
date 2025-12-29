@@ -5,6 +5,7 @@ import { useRouter } from '../contexts/RouterContext';
 import MentalHealthPlatform from './homepage_widgets/Showcase';
 import StudentTestimonial from './homepage_widgets/StudentTestimonial';
 import Footer from './homepage_widgets/Footer';
+import ContactForm from './homepage_widgets/ContactForm';
 
  
 // Remove onNavigate prop from interface
@@ -13,6 +14,17 @@ interface ATLJourneyWebsiteProps {}
 const ATLJourneyWebsite: React.FC<ATLJourneyWebsiteProps> = () => {
   const { isAuthenticated, logout } = useAuth();
   const { navigate } = useRouter();
+
+  const StanfordLogo = () => (
+    <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
+      <rect width="48" height="48" fill="#8C1515" />
+      <path
+        d="M14 12h8v8h-8v16h8v-8h8v16h-16v-32zm18 0h8v8h-8v16h8v-8h8v16h-16v-32z"
+        fill="white"
+      />
+    </svg>
+  );
+  
 
   return (
     <div className="min-h-screen bg-white">
@@ -165,9 +177,28 @@ const ATLJourneyWebsite: React.FC<ATLJourneyWebsiteProps> = () => {
         </div>
       </section>
 
-
       <MentalHealthPlatform/>
-      <StudentTestimonial/>
+      <StudentTestimonial
+      testimonialText="It was so nice to get to know my teammates and talk about what we're all going through. tbh really helped me deal with my anxiety and pressure to please other people. Also, the sessions were so real. No BS."
+      studentName="Jeanne K."
+      studentTitle="Student at Stanford"
+      universityName="Stanford"
+      universitySubtitle="University"
+      universityLogo={<StanfordLogo />}
+      studentImage="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop"
+   />
+
+      <StudentTestimonial
+      testimonialText="It was so nice to get to know my teammates and talk about what we're all going through. tbh really helped me deal with my anxiety and pressure to please other people. Also, the sessions were so real. No BS."
+      studentName="Jeanne K."
+      studentTitle="Student at Stanford"
+      universityName="Stanford"
+      universitySubtitle="University"
+      universityLogo={<StanfordLogo />}
+      studentImage="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop"
+      reverse={true}
+    />
+      <ContactForm/>
 
 
       {/* CHAPTER 2: MEET YOUR GUIDE */}
