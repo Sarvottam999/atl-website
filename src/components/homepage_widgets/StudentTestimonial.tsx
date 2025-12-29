@@ -85,14 +85,4 @@ const StudentTestimonial: React.FC<TestimonialProps> = ({
   );
 };
 
-// Example usage with Stanford logo
-const StanfordLogo = () => (
-  <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none">
-    <rect width="48" height="48" fill="#8C1515" />
-    <path
-      d="M14 12h8v8h-8v16h8v-8h8v16h-16v-32zm18 0h8v8h-8v16h8v-8h8v16h-16v-32z"
-      fill="white"
-    />
-  </svg>
-);
 export default StudentTestimonial;
