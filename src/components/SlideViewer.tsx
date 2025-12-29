@@ -1,12 +1,18 @@
 import React  from 'react';
-import { Lightbulb,   Rocket, Brain, Code,  Heart,  Target, Zap,  Gift } from 'lucide-react';
+import { Lightbulb } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import { useRouter } from '../contexts/RouterContext';
+import MentalHealthPlatform from './homepage_widgets/Showcase';
+import StudentTestimonial from './homepage_widgets/StudentTestimonial';
+import Footer from './homepage_widgets/Footer';
 
  
-interface ATLJourneyWebsiteProps {
-    onNavigate: () => void;
-  }
-  
-  const ATLJourneyWebsite: React.FC<ATLJourneyWebsiteProps> = ({ onNavigate }) => {
+// Remove onNavigate prop from interface
+interface ATLJourneyWebsiteProps {}
+
+const ATLJourneyWebsite: React.FC<ATLJourneyWebsiteProps> = () => {
+  const { isAuthenticated, logout } = useAuth();
+  const { navigate } = useRouter();
 
   return (
     <div className="min-h-screen bg-white">
@@ -22,15 +28,37 @@ interface ATLJourneyWebsiteProps {
               <p className="text-xs text-blue-100">Where Ideas Come Alive</p>
             </div>
           </div>
-          <button 
-  onClick={onNavigate}
-  className="bg-yellow-400 text-blue-600 px-6 py-2 rounded-full font-bold text-sm hover:bg-yellow-300 transition-all"
->
-  View Presentations
-</button>
+          <div className="flex items-center gap-4">
+            {isAuthenticated ? (
+              <>
+                <button 
+                  onClick={() => navigate('presentations')}
+                  className="bg-yellow-400 text-blue-600 px-6 py-2 rounded-full font-bold text-sm hover:bg-yellow-300 transition-all cursor-pointer"
+                >
+                  View Presentations
+                </button>
+                <button 
+                  onClick={logout}
+                  className="  text-yellow-400 px-6 py-2 rounded-full font-bold text-sm hover:bg-yellow-400 hover:text-blue-600 transition-all cursor-pointer"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <button 
+                onClick={() => navigate('login')}
+                className="bg-yellow-400 text-blue-600 px-6 py-2 rounded-full font-bold text-sm hover:bg-yellow-300 transition-all"
+              >
+                Login
+              </button>
+            )}
+          </div>
         </div>
       </header>
 
+      
+      {/* Rest of your component stays same */}
+ 
       {/* CHAPTER 1: THE INVITATION - Hero Section */}
       <section 
         className="relative py-32 px-6 overflow-hidden min-h-screen flex items-center"
@@ -137,6 +165,11 @@ interface ATLJourneyWebsiteProps {
         </div>
       </section>
 
+
+      <MentalHealthPlatform/>
+      <StudentTestimonial/>
+
+
       {/* CHAPTER 2: MEET YOUR GUIDE */}
       {/* <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -178,7 +211,7 @@ interface ATLJourneyWebsiteProps {
       </section> */}
 
       {/* CHAPTER 3: THE MAGICAL LAB */}
-      <section className="py-24 px-6 bg-orange-50">
+      {/* <section className="py-24 px-6 bg-orange-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block bg-orange-200 px-4 py-2 rounded-full text-sm font-semibold text-orange-600 mb-4">
@@ -223,22 +256,9 @@ interface ATLJourneyWebsiteProps {
             </div>
           </div>
 
-          {/* <div className="bg-orange-400 rounded-3xl p-12 text-center text-white">
-            <Wrench className="w-24 h-24 mx-auto mb-6" />
-            <h3 className="text-3xl font-bold mb-4">Our Toolkit of Wonders</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <div className="bg-white text-orange-600 py-3 px-4 rounded-xl font-bold">Arduino Kits</div>
-              <div className="bg-white text-orange-600 py-3 px-4 rounded-xl font-bold">Raspberry Pi</div>
-              <div className="bg-white text-orange-600 py-3 px-4 rounded-xl font-bold">IoT Sensors</div>
-              <div className="bg-white text-orange-600 py-3 px-4 rounded-xl font-bold">Robotics Sets</div>
-              <div className="bg-white text-orange-600 py-3 px-4 rounded-xl font-bold">VR Headsets</div>
-              <div className="bg-white text-orange-600 py-3 px-4 rounded-xl font-bold">Drones</div>
-              <div className="bg-white text-orange-600 py-3 px-4 rounded-xl font-bold">AI Software</div>
-              <div className="bg-white text-orange-600 py-3 px-4 rounded-xl font-bold">CAD Tools</div>
-            </div>
-          </div> */}
+        
         </div>
-      </section>
+      </section> */}
 
       {/* CHAPTER 4: THE ADVENTURE BEGINS */}
       {/* <section className="py-24 px-6 bg-blue-50">
@@ -305,7 +325,7 @@ interface ATLJourneyWebsiteProps {
       </section> */}
 
       {/* CHAPTER 5: STUDENT STORIES */}
-      <section className="py-24 px-6 bg-purple-100">
+      {/* <section className="py-24 px-6 bg-purple-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block bg-purple-200 px-4 py-2 rounded-full text-sm font-semibold text-purple-600 mb-4">
@@ -364,7 +384,7 @@ interface ATLJourneyWebsiteProps {
             <p className="text-gray-600 mt-2">Each one tells a story of curiosity, perseverance, and innovation</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CHAPTER 6: THE VICTORIES */}
       {/* <section className="py-24 px-6 bg-yellow-50">
@@ -408,7 +428,7 @@ interface ATLJourneyWebsiteProps {
       </section> */}
 
       {/* CHAPTER 7: WHAT WE EXPLORE */}
-      <section className="py-24 px-6 bg-blue-600 text-white">
+      {/* <section className="py-24 px-6 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block bg-blue-500 px-4 py-2 rounded-full text-sm font-semibold mb-4">
@@ -486,7 +506,7 @@ interface ATLJourneyWebsiteProps {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CHAPTER 8: WORKSHOPS & EVENTS */}
       {/* <section className="py-24 px-6 bg-green-50">
@@ -563,61 +583,7 @@ interface ATLJourneyWebsiteProps {
       </section> */}
 
       {/* EPILOGUE: STAY CONNECTED */}
-      <section className="py-16 px-6 bg-gray-800 text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="bg-yellow-400 p-2 rounded-lg">
-                  <Lightbulb className="w-6 h-6 text-gray-800" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">ATL Innovation</h3>
-                  <p className="text-xs text-gray-400">Dream. Create. Innovate.</p>
-                </div>
-              </div>
-              <p className="text-sm text-gray-400">
-                Where every student is an inventor waiting to be discovered.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-yellow-400">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">About the Lab</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Our Projects</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Achievements</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Gallery</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-yellow-400">Get Involved</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Join a Workshop</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Visit the Lab</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Collaborate</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Contact Me</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-yellow-400">Connect</h4>
-              <p className="text-sm text-gray-400 mb-4">
-                Have questions? Want to collaborate? Let's talk innovation!
-              </p>
-              <button className="bg-yellow-400 text-gray-800 px-6 py-2 rounded-full font-semibold text-sm hover:bg-yellow-300 transition-all">
-                Get in Touch
-              </button>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-12 pt-8 text-center">
-            <p className="text-sm text-gray-400">
-              © 2024 ATL Innovation Lab • Empowering the Next Generation of Innovators
-            </p>
-            <p className="text-xs text-gray-500 mt-2">
-              Part of the Atal Innovation Mission • Government of India
-            </p>
-          </div>
-        </div>
-      </section>
+     <Footer/>
     </div>
   );
 };

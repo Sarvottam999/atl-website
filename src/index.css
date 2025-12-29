@@ -1,1 +1,179 @@
 @import "tailwindcss";
+
+/* =========================
+   Guthen Bloots
+   ========================= */
+   @font-face {
+    font-family: "GuthenBloots";
+    src: url("/fonts/GuthenBloots.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* =========================
+     Modern Era
+     ========================= */
+  
+  /* Regular */
+  @font-face {
+    font-family: "ModernEra";
+    src: url("/fonts/ModernEra-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Medium */
+  @font-face {
+    font-family: "ModernEra";
+    src: url("/fonts/ModernEra-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* ExtraBold */
+  @font-face {
+    font-family: "ModernEra";
+    src: url("/fonts/ModernEra-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* =========================
+     Recoleta
+     ========================= */
+  
+  /* Bold */
+  @font-face {
+    font-family: "Recoleta";
+    src: url("/fonts/Recoleta-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Black */
+  @font-face {
+    font-family: "Recoleta";
+    src: url("/fonts/Recoleta-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  
+  :root {
+    font-family: "ModernEra", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+
+  .cut-shape {
+    /* background: #8df26b; */
+    width: 1000px;
+    height: 600px;
+
+
+  background-image: url("/touchpoints-bg.jpg"); /* or /assets/your-image.png */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+    clip-path: polygon(
+      /* top edge (slanted cut start) */
+      3% 0%,
+      52% 0%,        /* 👈 push top cut slightly right */
+  
+      /* slanted cut edge */
+      48% 85%,       /* 👈 pull bottom cut left */
+  
+      /* bottom with cone */
+      16% 85%,
+      12% 92%,      /* 👇 cone tip */
+      8% 85%,
+  
+      /* left cut gap */
+      3% 85%,
+      0% 80%,
+      0% 5%
+    );
+  
+    transform: rotate(-3deg);
+    transform-origin: center;
+  }
+  
+  
+  .cut-shape-testis {
+    width: 420px;
+    height: 560px;
+  
+    background-image: url("/touchpoints-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+    clip-path: polygon(
+      /* Top left cut */
+      6% 0%,
+  
+      /* Top edge */
+      94% 0%,
+  
+      /* Top right slant */
+      100% 6%,
+  
+      /* Right edge angled */
+      98% 78%,
+  
+      /* Bottom right */
+      92% 100%,
+  
+      /* Bottom edge */
+      18% 100%,
+  
+      /* Bottom paper tail */
+      /* 1% 110%,
+      8% 100%, */
+  
+      /* Left edge */
+      0% 96%,
+      0% 6%
+    );
+  
+    transform: rotate(-3deg);
+    transform-origin: center;
+  
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  }
+  
+
+
+  .top-paper-shape {
+    /* width: 100%;
+    height: 160px; */
+    background: #111;
+  
+    clip-path: polygon(
+      /* Top left cut */
+      6% 0%,
+  
+      /* Slanted top edge */
+      100% 10%,
+  
+      /* Bottom right */
+      100% 100%,
+  
+      /* Bottom left */
+      0% 100%,
+  
+      /* Left edge */
+      0% 18%
+    );
+  }
+  
