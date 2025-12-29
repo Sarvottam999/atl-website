@@ -196,6 +196,7 @@ const ATLJourneyWebsite: React.FC<ATLJourneyWebsiteProps> = () => {
       universitySubtitle="University"
       universityLogo={<StanfordLogo />}
       studentImage="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop"
+      bg='bg-pink-50'
       reverse={true}
     />
       <ContactForm/>

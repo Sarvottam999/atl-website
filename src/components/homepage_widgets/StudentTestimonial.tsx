@@ -10,6 +10,7 @@ interface TestimonialProps {
   studentImage: string;
   heading?: string;
   reverse?: boolean; // Add this
+  bg?: string;
 
 }
 
@@ -23,10 +24,11 @@ const StudentTestimonial: React.FC<TestimonialProps> = ({
   studentImage,
   heading = "Hear what our students have to say",
   reverse = false,  
+  bg = "bg-orange-50"
 
 }) => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8 bg-orange-50">
+    <div className={`min-h-screen bg-gray-50 flex items-center justify-center p-8 ${bg}`}>
       <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
         {/* Left side - Image */}
         <div className={`relative ${reverse ? 'md:order-2' : 'md:order-1'}`}>

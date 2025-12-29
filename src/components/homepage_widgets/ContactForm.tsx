@@ -60,8 +60,8 @@ const ContactForm: React.FC = () => {
           {/* Left Column - Decorative Paper Shape */}
           <div className="relative order-2 lg:order-1 hidden lg:block">
             <div className="contact-paper-shape relative">
-              <div className="absolute inset-0 flex items-center justify-center p-12">
-                <div className="text-center space-y-6">
+              <div className="absolute inset-0 flex items-center justify-center">
+                {/* <div className="text-center space-y-6">
                   <svg className="w-24 h-24 mx-auto text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
@@ -72,7 +72,13 @@ const ContactForm: React.FC = () => {
                   <p className="text-white text-lg opacity-90">
                     Have questions? We'd love to hear from you.
                   </p>
-                </div>
+                </div> */}
+                <img src="contact-us.webp"   alt=""  style={{
+                     width: "100%",
+                     height: "100%",
+                     objectFit : "cover"
+                    //  object-fit: "cover";
+                }}/>
               </div>
             </div>
           </div>
@@ -233,7 +239,6 @@ const ContactForm: React.FC = () => {
         .contact-paper-shape {
           width: 500px;
           height: 600px;
-          background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
           clip-path: polygon(
             8% 0%,
             92% 0%,
